@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+
+    --swiper-theme-color: #fff;
+    --swiper-navigation-size: 30px;
+    --swiper-navigation-sides-offset: 20px;
+    --swiper-pagination-bottom: 20px;
+    --swiper-pagination-color: #afb3c0;
+    --swiper-pagination-bullet-inactive-color: #36373c;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+}
+
+body {
+    background-color: #000;
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.slider {
+    height: 100svh;
+    box-shadow: inset 0 50px 50px #000, inset 0 -50px 50px #000;
+}
+
+.slider .swiper-wrapper {
+    height: 100%;
+}
+
+.slider .slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slide__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    transition: opacity 250ms ease;
+}
+.slide__content h2 {
+    font-size: calc(var(--index) * 5);
+    text-transform: uppercase;
+    letter-spacing: calc(var(--index) * .7);
+    margin-bottom: calc(var(--index) * 2.2);
+
+    position: relative;
+}
+
+.swiper-slide-active .slide__content {
+    opacity: 1;
+}
+
+.slide__content h2::after{
+    content: '';
+    height: 1px;
+    width: 20%;
+    background-color: rgba(255, 255, 255, .35);
+    position: absolute;
+    left: 40%;
+    bottom: calc(var(--index) *-1 );
+}
+
+.slide__content b {
+    font-size: calc(var(--index) * .85);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .85);
+    letter-spacing: calc(var(--index) * .2);
+
+    text-align: center;
+    margin-bottom: calc(var(--index) * 2.8);
+}
+
+button {
+    --button-color: rgba(255 255 255 / .9);
+    max-width: max-content;
+
+    padding: 10px 30px;
+    font-size: 15.5px;
+    background-color: transparent;
+    border-radius: 10em;
+    color: var(--button-color);
+    border: 1px solid var(--button-color);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+.slider-navigation > * {
+    border: 1.5px solid var(--swiper-theme-color);
+    border-radius: 10em;
+    width: 55px;
+    height: 55px;
+}
+.video-bg{
+    position: fixed;
+    width: 95%;
+    height: 95%;
+
+    object-fit: cover;
+    object-position: center;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .7;
+
+    transition: opacity 2000ms ease-out;
+}
+
+.video-bg.change {
+    opacity: 1;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 50%;
+
+    max-width: 70%;
+    width: 100%;
+}
